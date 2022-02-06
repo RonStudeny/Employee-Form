@@ -5,29 +5,51 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Binding"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="650" Width="800">
     <Window.Resources>
-        <Style x:Name="InputBox" TargetType="TextBox">
-            <Setter Property="FontSize" Value="35"/>
-            <Setter Property="Height" Value="45"/>
+        <Style x:Key="InputBox" TargetType="TextBox">
+            <Setter Property="FontSize" Value="30"/>
+            <Setter Property="Height" Value="55"/>
+            <Setter Property="Width" Value="200"/>
+        </Style>
+        <Style x:Key="LabelRes" TargetType="Label">
+            <Setter Property="FontSize" Value="30"/>
+            <Setter Property="Height" Value="55"/>
+            <Setter Property="Width" Value="200"/>
+        </Style>
+        <Style x:Key="ButtonRes" TargetType="Button">
+            <Setter Property="FontSize" Value="30"/>
+            <Setter Property="Height" Value="55"/>
             <Setter Property="Width" Value="200"/>
         </Style>
     </Window.Resources>
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
-        
+        <StackPanel Orientation="Vertical" Margin="0 0 200 0">
+            <Label Content="Name" Style="{StaticResource LabelRes}"/>
+            <Label Content="Surname" Style="{StaticResource LabelRes}"/>
+            <Label Content="Date of birth" Style="{StaticResource LabelRes}"/>
+            <Label Content="Education" Style="{StaticResource LabelRes}"/>
+            <Label Content="Occupation" Style="{StaticResource LabelRes}"/>
+            <Label Content="Gross salary" Style="{StaticResource LabelRes}"/>
+            <Button x:Name="Read_Button" Content="Read from file" Style="{StaticResource ButtonRes}" Click="Read_Button_Click"/>
+
+        </StackPanel>
+        <StackPanel Orientation="Vertical" Margin="200 0 0 0">
+            <TextBox Style="{StaticResource InputBox}" Name="TBName"/>
+            <TextBox Style="{StaticResource InputBox}" Name="TBSurname"/>
+            <DatePicker Height="55" Width="200" FontSize="30"  Name="InputDoB"/>
+            <ComboBox Height="55" Width="200" FontSize="30" Name="InputEdu">
+                <ComboBoxItem Content="None"/>
+                <ComboBoxItem Content="Elementary"/>
+                <ComboBoxItem Content="High school"/>
+                <ComboBoxItem Content="University"/>
+            </ComboBox>
+            <TextBox Style="{StaticResource InputBox}" Name="TBOccupation"/>
+            <TextBox Style="{StaticResource InputBox}" Name="TBGrossSalary"/>
+            <Button x:Name="Write_Button" Content="Write to a file" Style="{StaticResource ButtonRes}" Click="Write_Button_Click"/>
+        </StackPanel>
+
+        <Label Name="Debug" Height="55" Width="350" FontSize="30" Margin="225,422,225,57"/>
+
     </Grid>
 </Window>
