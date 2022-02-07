@@ -27,6 +27,12 @@ namespace Binding
 
         private void Write_Button_Click(object sender, RoutedEventArgs e)
         {
+
+            //foreach (var item in Data.Children)
+            //{
+                
+            //}
+
             try
             {
                 Employee employee = new Employee(TBName.Text, TBSurname.Text, InputDoB.DisplayDate, InputEdu.SelectedIndex, TBOccupation.Text, Convert.ToDouble(TBGrossSalary.Text));
@@ -47,13 +53,12 @@ namespace Binding
                 string[] read = File.ReadAllText(path).Split(sep);
                 TBName.Text = read[0];
                 TBSurname.Text = read[1];
-                InputDoB.DisplayDate = DateTime.Parse(read[2]);
+                InputDoB.SelectedDate = DateTime.Parse(read[2]);
                 InputEdu.SelectedIndex = Convert.ToInt32(read[3]);
                 TBOccupation.Text = read[4];
                 TBGrossSalary.Text = read[5];
             }
             catch { Debug.Content = "Read failed"; }
-
 
         }
     }

@@ -34,7 +34,7 @@
             <Button x:Name="Read_Button" Content="Read from file" Style="{StaticResource ButtonRes}" Click="Read_Button_Click"/>
 
         </StackPanel>
-        <StackPanel Orientation="Vertical" Margin="200 0 0 0">
+        <StackPanel Orientation="Vertical" Margin="200 0 0 0" Name ="Data">
             <TextBox Style="{StaticResource InputBox}" Name="TBName"/>
             <TextBox Style="{StaticResource InputBox}" Name="TBSurname"/>
             <DatePicker Height="55" Width="200" FontSize="30"  Name="InputDoB"/>
